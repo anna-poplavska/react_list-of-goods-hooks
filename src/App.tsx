@@ -55,14 +55,6 @@ export const App: React.FC = () => {
   const [reverseField, setReverseField] = React.useState(false);
   const readyGoods = getSortedGoods(goodsFromServer, sortField, reverseField);
 
-  function checkReverseField(): void {
-    if (reverseField === true) {
-      setReverseField(false);
-    } else {
-      setReverseField(true);
-    }
-  }
-
   return (
     <div className="section content">
       <div className="buttons">
@@ -85,7 +77,7 @@ export const App: React.FC = () => {
         <button
           type="button"
           className={`button is-warning${reverseField === true ? '' : ' is-light'}`}
-          onClick={() => checkReverseField()}
+          onClick={() => setReverseField(!reverseField)}
         >
           Reverse
         </button>
